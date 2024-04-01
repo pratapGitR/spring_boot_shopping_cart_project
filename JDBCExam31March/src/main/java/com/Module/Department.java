@@ -2,8 +2,8 @@ package com.Module;
 
 public class Department {
     private Integer deptID;
-    private String depName;
-    private String depLocation;
+    private String deptName;
+    private String deptLocation;
     private Integer studID;
 
     public Integer getDeptID() {
@@ -14,20 +14,20 @@ public class Department {
         this.deptID = deptID;
     }
 
-    public String getDepName() {
-        return depName;
+    public String getDeptName() {
+        return deptName;
     }
 
-    public void setDepName(String depName) {
-        this.depName = depName;
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
     }
 
-    public String getDepLocation() {
-        return depLocation;
+    public String getDeptLocation() {
+        return deptLocation;
     }
 
-    public void setDepLocation(String depLocation) {
-        this.depLocation = depLocation;
+    public void setDeptLocation(String deptLocation) {
+        this.deptLocation = deptLocation;
     }
 
     public Integer getStudID() {
@@ -42,8 +42,8 @@ public class Department {
     public String toString() {
         return "Department{" +
                 "deptID=" + deptID +
-                ", depName='" + depName + '\'' +
-                ", depLocation='" + depLocation + '\'' +
+                ", depName='" + deptName + '\'' +
+                ", depLocation='" + deptLocation + '\'' +
                 ", studID=" + studID +
                 '}';
     }
