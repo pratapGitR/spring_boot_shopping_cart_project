@@ -22,6 +22,7 @@ public class Main {
         PreparedStatement studPreparedStatement = null;
         PreparedStatement deptPreparedStatement= null;
         PreparedStatement subPreparedStatement = null;
+        CallableStatement callableStatement = null;
 
         Connection connection = null;
 
@@ -122,6 +123,20 @@ public class Main {
                 }
 
 
+            }try {
+                callableStatement = connection.prepareCall("{call update_student_marks()}");
+                callableStatement.execute();
+                System.out.println("Stored procedure executed successfully.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (callableStatement != null) {
+                        callableStatement.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
 
