@@ -9,7 +9,7 @@
         </id>
         <property name="studName" column="stud_name" length="50"/>
         <property name="studRoll" column="stud_roll" length="10"/>
-        <property name=""
+        <property name="sub"
         
     </class>
 </hibernate-mapping>

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public class ItemDAOImp implements ItemDAO {
+
     private SessionFactory sessionFactory;
     public ItemDAOImp(SessionFactory  sessionFactory){
         this.sessionFactory = sessionFactory;
@@ -37,7 +38,7 @@ public class ItemDAOImp implements ItemDAO {
     @Override
     public List<Item> itemList() {
         List<Item> allItems = new ArrayList<>();
-        String selectQuery ="from Item";
+        String selectQuery ="from Item as info join ItemType type";
         Session session = this.sessionFactory.openSession();
         try {
             Query query= session.createQuery(selectQuery);

@@ -1,20 +1,15 @@
 package org.shopping.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.jboss.logging.annotations.Message;
-import org.jboss.logging.annotations.Pos;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import java.util.Objects;
+
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "items_info")
 public class Item {
@@ -22,19 +17,30 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private Integer itemId;
-    @NotBlank(message = "Please provide item name !")
+    @Column(name ="item_name")
     private String itemName;
     @Column(name = "item_quantity")
-    @NotNull(message = "please provide item quantity")
-    @Positive(message = "item can not be negative ")
     private Integer itemQuantity;
     @Column(name = "item_price")
-    @NotNull(message = "please provide item price")
-    @Positive(message = "item price can not be negative.")
     private Double itemPrice;
-    @Column(name="item_type")
-    @NotBlank(message = "please provide item type")
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="item_type_id")
     private ItemType itemType;
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        Item item = (Item) o;
+        return getItemId() != null && Objects.equals(getItemId(), item.getItemId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }

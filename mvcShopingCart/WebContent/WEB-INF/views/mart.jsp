@@ -14,7 +14,7 @@
 <b><i><font color="green" size="10">Welcome to mart.</font></i></b><br>
 <br>
 Please fill the items you need!!
-<form action="order" method="post">
+<form action="saveItem" method="post">
 <div>
     <label for ="itemName">Item Name:</label>
     <input type="text" name="itemName" id="itemName" required>
@@ -36,6 +36,9 @@ Please fill the items you need!!
     </div>
 
 </form>
+<br>
+<br>
+<a href="http://localhost:8080/mvcShopingCart_war_exploded/allItems">Display All items</a>
 
 </body>
 </html>

@@ -22,7 +22,7 @@ public class DatabaseOperation {
             System.out.println("Connection Successful");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.getResultSet();
-            s
+
         }catch (Exception e){
             e.printStackTrace();
         }

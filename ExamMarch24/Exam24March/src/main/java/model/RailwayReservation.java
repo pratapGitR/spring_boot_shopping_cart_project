@@ -43,10 +43,10 @@ public class RailwayReservation {
             Connection connection = DriverManager.getConnection(url,userName,password);
             System.out.println("Connection Successful");
 
-            String createQuery ="create table railway_reservation"
+            String createQuery ="create table railway_reservation";
 
             Statement statement = connection.createStatement();
-            sta
+
         }catch (Exception e){
             e.printStackTrace();
         }

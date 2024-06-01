@@ -4,10 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "item_types")
 public class ItemType {
@@ -16,6 +13,5 @@ public class ItemType {
     @Column(name = "item_type_id")
     private Integer itemTypeId;
     @Column(name = "item_type_name")
-    @NotBlank(message = "please provide item type")
     private String itemTypeName;
 }

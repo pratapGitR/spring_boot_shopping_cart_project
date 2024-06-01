@@ -17,7 +17,7 @@ public class Customer {
     private String custName;
     @Column(name= "customer_email")
     private String customerEmail;
-    @Column(name = "customer_mobile" ,length=10)
+    @Column(name = "customer_mobile" )
     private Long custMob;
     @Column(name = "final_product_price")
     private Double finalProductPrice;

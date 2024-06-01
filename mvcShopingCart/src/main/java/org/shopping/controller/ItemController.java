@@ -7,29 +7,32 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
-
 public class ItemController {
     @Autowired
     private ItemService itemService;
-    @GetMapping("/mart")
+    @GetMapping("/")
     public String landing(){
         return"mart";
     }
 
+    @PostMapping("/saveItem")
     public String saveItem(@ModelAttribute ItemModel itemModel){
         itemService.saveItemData(itemModel);
+
         return "saved";
     }
 
+    @GetMapping("/allItems")
     public String allItems(Model model){
-        List<ItemModel > itemModelList = this.itemService.allItems();
-        model.addAttribute("alluser", itemModelList);
+        List<ItemModel> itemModelList = this.itemService.allItems();
+        model.addAttribute("allItems", itemModelList);
+
         return "displayAllItems";
     }
 }

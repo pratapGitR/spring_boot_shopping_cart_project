@@ -4,8 +4,17 @@ public class Subject {
     private Integer subId;
     private String subName;
 
+    public Subject(Integer subId, String subName) {
+        this.subId = subId;
+        this.subName = subName;
+    }
+
     public Subject(String subName) {
         this.subName = subName;
+    }
+
+    public Subject() {
+
     }
 
     public Integer getSubId() {

@@ -4,12 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.shopping</groupId>
     <artifactId>mvcShopingCart</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>mvc shoping cart</name>
-    <description>exam may19</description>
+
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -74,7 +73,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.30</version>
         </dependency>
 
         <!-- Servlet -->
@@ -105,15 +104,15 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.10.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.3.2</version>
                 <configuration>
                     <warSourceDirectory>WebContent</warSourceDirectory>
                 </configuration>

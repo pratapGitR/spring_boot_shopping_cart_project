@@ -23,19 +23,19 @@ public class ExecutionForSubject {
 
         List<Subject> subjects = new ArrayList<>();
         System.out.println("Please Enter 4 subjects");
-        for (int i = 0; i < 4; i++) {
-            String subName = scanner.nextLine();
-            Subject subject = new Subject(subName);
-            subjects.add(subject);
-        }
+
 
 
 
         try{
             tx= session.beginTransaction();
-            for(Subject sub: subjects){
-                session.save(sub);
+            for (int i = 0; i < 4; i++) {
+                String subName = scanner.nextLine();
+                Subject subject = new Subject(subName);
+                subjects.add(subject);
+                session.save(subjects);
             }
+
 
             tx.commit();
 

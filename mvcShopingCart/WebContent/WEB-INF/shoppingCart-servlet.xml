@@ -12,7 +12,7 @@
 
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven />
-    <context:component-scan base-package="org.shopping" />
+  <context:component-scan base-package="org.shopping"/>
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources
         in the /WEB-INF/views directory -->
@@ -37,6 +37,9 @@
             <beans:list>
                 <beans:value>org.shopping.entity.Item</beans:value>
                 <beans:value>org.shopping.entity.ItemType</beans:value>
+                <beans:value>org.shopping.entity.Customer</beans:value>
+                <beans:value>org.shopping.entity.Vendor</beans:value>
+
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -45,11 +48,18 @@
                 <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
                 <beans:prop key="hibernate.show_sql">true</beans:prop>
                 <beans:prop key="hibernate.connection.pool_size">10</beans:prop>
+                <beans:prop key="hibernate.current_session_context_class">thread</beans:prop>
             </beans:props>
         </beans:property>
     </beans:bean>
 
-    <beans:bean name="itemDao" class="org.shopping.dao.ItemDAOImp">
+    <beans:bean name="itemDAO" class="org.shopping.dao.ItemDAOImp">
+        <beans:constructor-arg name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </beans:bean>
+    <beans:bean name="customerDao" class="org.shopping.dao.CustomerDAOImp">
+        <beans:constructor-arg name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </beans:bean>
+    <beans:bean name="vendorDAO" class="org.shopping.dao.VendorDAOImp">
         <!--		<beans:property name="sessionFactory" ref="hibernate4SessionFactory"/>-->
         <beans:constructor-arg name="sessionFactory" ref="hibernate4SessionFactory"/>
     </beans:bean>

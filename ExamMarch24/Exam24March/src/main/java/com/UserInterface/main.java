@@ -40,8 +40,8 @@ public class main {
             Connection connection = DriverManager.getConnection(url,userName,password);
             System.out.println("Connection complete ");
 
-            Statement statement =null;
-            statement = connection.createStatement()
+//            Statement statement =null;
+//            statement = connection.createStatement()
 
         }catch (Exception e){
             System.out.println("Error ");

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: work
@@ -18,7 +19,7 @@
         <th>Item Price</th>
         <th>Item Type</th>
     </tr>
-    <c:forEach var="item" items="${allItem}">
+    <c:forEach var="item" items="${allItems}">
         <tr>
             <td><c:out value="${item.itemName}"/></td>
             <td><c:out value="${item.itemQuantity}"/></td>
