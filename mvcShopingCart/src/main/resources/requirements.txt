@@ -1,0 +1,19 @@
+Customer
+ Customer registration
+ View the list of items based on the type with the details information while searching any product
+  1. Rice        20/kg
+  wheat
+  milk
+ select an. Item from the list
+ check out of the item
+        Bill generated in pdf
+
+Vendor
+ Vendor Registration
+ Vendor would be adding the items to the database from where we will display the items list over customer
+        Vendor would be having options to see the items status
+
+  Rice 10kg 20
+ Vendor would be uploading the the items from excel file
+        Vendor can download the items status
+Authentication
