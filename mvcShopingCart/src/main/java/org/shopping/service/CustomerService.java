@@ -16,6 +16,7 @@ import java.util.List;
 @Service
 
 public class CustomerService {
+
     @Autowired
      private DAO<Customer>customerDao;
     @Transactional

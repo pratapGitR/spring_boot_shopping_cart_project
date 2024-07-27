@@ -18,8 +18,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    @GetMapping("/")
+    public String home(){
+        return "landingCustomer";
+    }
+
     @GetMapping("/form")
-    public String landing(){
+    public String form(){
         return "customerForm";
     }
 
@@ -29,12 +34,16 @@ public class CustomerController {
         model.addAttribute("customer",customerModel);
         return "showCustomer";
     }
-    @GetMapping("/getCustomerById/{id}")
-    public String getCustomerById(@PathVariable("id") String customerId, Model model){
-        Integer convertedCustomerId = Integer.parseInt(customerId);
-        CustomerModel customerModel = this.customerService.getCustomerById(convertedCustomerId);
-        model.addAttribute("customerInfo", customerModel);
-        return "displayCustomerById";
+    @GetMapping("getCustomerById")
+    public String getCustomerById(@RequestParam("customerId")Integer customerId, Model model){
+//        if(customerId == null){
+//            return "error";
+//        }else{
+            CustomerModel customerModel = this.customerService.getCustomerById(customerId);
+            model.addAttribute("customerInfo", customerModel);
+            return "showCustomer";
+//        }
+
     }
 
     @GetMapping("/getAllCustomer")

@@ -67,6 +67,7 @@ public class CustomerDAOImp implements DAO <Customer>{
         Customer customer = new Customer();
         Session session = this.sessionFactory.openSession();
         try{
+
             customer = (Customer) session.load(Customer.class, customerId);
         }catch(Exception e) {
             System.err.println("Error Detail"+e.getMessage());

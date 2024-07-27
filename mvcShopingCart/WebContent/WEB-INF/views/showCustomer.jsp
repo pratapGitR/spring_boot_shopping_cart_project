@@ -12,7 +12,7 @@
     <title>Customer Detail</title>
 </head>
 <body>
-<c:set var = "customerInfo" value="${customer}"/>
+<c:set var = "customerInfo" value="${customerInfo}"/>
     <h2>Below is the information you filled</h2>
     <table>
         <tr>
